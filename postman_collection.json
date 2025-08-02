@@ -1,0 +1,151 @@
+{
+	"info": {
+		"_postman_id": "ai-vision-emergency-lighting",
+		"name": "AI Vision Emergency Lighting Detection API",
+		"description": "API for detecting and classifying emergency lighting fixtures from construction blueprints",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Health Check",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/health",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"health"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Upload Blueprint",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": []
+						},
+						{
+							"key": "project_id",
+							"value": "test-project-001",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/blueprints/upload",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"blueprints",
+						"upload"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Processing Result",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/blueprints/result?pdf_name={{pdf_name}}",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"blueprints",
+						"result"
+					],
+					"query": [
+						{
+							"key": "pdf_name",
+							"value": "{{pdf_name}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Test Vision Processing",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/test/vision",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"test",
+						"vision"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "API Information",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost:8000",
+			"type": "string"
+		},
+		{
+			"key": "pdf_name",
+			"value": "test_blueprint.pdf",
+			"type": "string"
+		}
+	]
+} 
